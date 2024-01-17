@@ -17,7 +17,7 @@ export const CounterScreen = () => {
 
             <Fab
                 title='+1'
-                position='bl'
+                position='br'
                 onPress={
                     () => setContador(contador + 1)
                 }
