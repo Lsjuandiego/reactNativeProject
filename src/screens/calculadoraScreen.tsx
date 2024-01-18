@@ -13,6 +13,21 @@ export const CalculadoraScreen = () => {
         setNumero('0');
     }
 
+    const btnDelete = () => {
+        let negativo = '';
+        let numeroTemp = numero;
+        if (numero.includes('-')) {
+            negativo = '-';
+            numeroTemp = numero.substring(1);
+        }
+
+        if (numeroTemp.length > 1) {
+            setNumero(negativo + numeroTemp.slice(0, -1));
+        } else {
+            setNumero('0');
+        }
+    }
+
     const armarNumero = (numeroTexto: string) => {
 
         //no aceptar doble punto
@@ -32,7 +47,7 @@ export const CalculadoraScreen = () => {
                 setNumero(numeroTexto);
             }
             //evitar el 000.0
-            else if(numeroTexto === '0'&& !numero.includes('.')) {
+            else if (numeroTexto === '0' && !numero.includes('.')) {
                 setNumero(numero);
             }
             else {
@@ -69,7 +84,7 @@ export const CalculadoraScreen = () => {
                 {/* boton */}
                 <BotonCalculadora texto='C' color='#9B9B9B' accion={limpiar} />
                 <BotonCalculadora texto='+/-' color='#9B9B9B' accion={positivoNegativo} />
-                <BotonCalculadora texto='del' color='#9B9B9B' accion={limpiar} />
+                <BotonCalculadora texto='del' color='#9B9B9B' accion={btnDelete} />
                 <BotonCalculadora texto='/' color='#FF9427' accion={limpiar} />
             </View>
             {/* Fila de botones */}
