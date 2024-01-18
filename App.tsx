@@ -1,10 +1,18 @@
 import React from 'react'
-//import { HolaMundoScreen } from './src/screens/HolaMundoScreen';
-import { CounterScreen } from './src/screens/CounterScreen';
+
+import { SafeAreaView, StatusBar } from 'react-native';
+import { CalculadoraScreen } from './src/screens/calculadoraScreen';
+import { styles } from './src/theme/AppTheme';
 
 export const App = () => {
   return (
-    //<HolaMundoScreen/>
-    <CounterScreen/>
+    <SafeAreaView style={styles.fondo}>
+      <StatusBar
+        backgroundColor='black'
+        barStyle='light-content'
+      />
+      <CalculadoraScreen />
+    </SafeAreaView>
+
   )
 }
